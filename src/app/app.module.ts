@@ -27,7 +27,7 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
     ProjectListComponent,
     ProjectItemComponent,
     ProjectNewComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
   ],
   imports: [
     BrowserModule,

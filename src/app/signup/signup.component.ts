@@ -34,4 +34,8 @@ export class SignupComponent implements OnInit {
       return {invalid: true}
     }
   }
+
+  onReset(){
+    return this.signUpForm.reset();
+  }
 }

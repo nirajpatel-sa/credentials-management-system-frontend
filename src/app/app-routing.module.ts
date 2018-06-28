@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     { path: 'signin', component: SigninComponent },
     { path: 'projects', component: ProjectsComponent,children:[
         {path: 'new',component: ProjectNewComponent},
-    ] }
+    ] },
 ]
 @NgModule({
     imports: [
