@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Sign Up</h2>
+    </div>
+  </div>
+
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="row">
+      <div formGroupName="name">
+        <div class="col-sm-3 form-group">
+          <label for="name.first-name">First Name</label>
+          <input class="form-control" type="text" id="first-name" formControlName="first-name">
+        </div>
+
+        <div class="col-sm-3 form-group">
+          <label for="name.last-name">Last Name</label>
+          <input class="form-control" type="text" id="last-name" formControlName="last-name">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="email">Email Id</label>
+        <input class="form-control" type="email" id="email" formControlName="email">
+      </div>
+    </div>
+
+    <div formGroupName="passwordGroup">
+      <div class="row">
+        <div class="col-sm-3 form-group">
+          <label for="passwordGroup.password">Password</label>
+          <input class="form-control" type="password" id="password" formControlName="password">
+        </div>
+
+        <div class="col-sm-3 form-group">
+          <label for="passwordGroup.confirm-password">Confirm Password</label>
+          <input class="form-control" type="password" id="confirm-password" formControlName="confirm-password">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <button class="btn btn-primary" type="submit" [disabled]="!signUpForm.valid">Sign Up</button>
+      </div>
+
+      <div class="col-sm-3">
+        <button class="btn btn-primary" type="button">Reset</button>
+      </div>
+    </div>
+
+  </form>
+</div>
