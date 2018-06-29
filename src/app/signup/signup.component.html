@@ -13,11 +13,15 @@
         <div class="col-sm-3 form-group">
           <label for="name.first-name">First Name</label>
           <input class="form-control" type="text" id="first-name" formControlName="first-name">
+          <span class="help-block" *ngIf="signUpForm.get('name.first-name').invalid &&
+          signUpForm.get('name.first-name').touched">Please enter first name</span>
         </div>
 
         <div class="col-sm-3 form-group">
           <label for="name.last-name">Last Name</label>
           <input class="form-control" type="text" id="last-name" formControlName="last-name">
+          <span class="help-block" *ngIf="signUpForm.get('name.last-name').invalid &&
+          signUpForm.get('name.last-name').touched">Please enter last name</span>
         </div>
       </div>
     </div>
@@ -25,7 +29,9 @@
     <div class="row">
       <div class="col-sm-6 form-group">
         <label for="email">Email Id</label>
-        <input class="form-control" type="email" id="email" formControlName="email">
+        <input class="form-control" type="email" id="email" formControlName="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$">
+        <span class="help-block" *ngIf="signUpForm.get('email').invalid &&
+          signUpForm.get('email').touched">Please enter valid email id</span>
       </div>
     </div>
 
@@ -34,18 +40,24 @@
         <div class="col-sm-3 form-group">
           <label for="passwordGroup.password">Password</label>
           <input class="form-control" type="password" id="password" formControlName="password">
+          <span class="help-block" *ngIf="signUpForm.get('passwordGroup.password').invalid &&
+          signUpForm.get('passwordGroup.password').touched">Please enter valid password</span>
         </div>
 
         <div class="col-sm-3 form-group">
           <label for="passwordGroup.confirm-password">Confirm Password</label>
           <input class="form-control" type="password" id="confirm-password" formControlName="confirm-password">
+          <span class="help-block" *ngIf="!signUpForm.get('passwordGroup.confirm-password').valid && signUpForm.get('passwordGroup.confirm-password').touched">
+            <span *ngIf="signUpForm.get('passwordGroup.confirm-password').errors['required']">This is required!</span>
+          </span>
         </div>
       </div>
     </div>
 
+
     <div class="row">
       <div class="col-sm-3">
-        <button class="btn btn-primary" type="submit" [disabled]="!signUpForm.valid">Sign Up</button>
+        <button class="btn btn-primary" type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
       </div>
 
       <div class="col-sm-3">

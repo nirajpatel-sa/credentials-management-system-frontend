@@ -1,14 +1,17 @@
-<form [formGroup]="addProjectForm" (ngSubmit)="onProjectSubmit">
-  <div class="row">
-    <div class="col-sm-3 form-group">
-      <label for="add-project">Add Project</label>
-      <input class="form-control" type="text" placeholder="Add Project" formControlName="projectName">
+<div class="container">
+  <form [formGroup]="addProjectForm" (ngSubmit)="onProjectSubmit()">
+    <div class="row">
+      <div class="col-sm-3 form-group">
+        <label for="add-project">Add Project</label>
+        <input class="form-control" type="text" formControlName="projectName">
+        <span *ngIf="addProjectForm.get('projectName').invalid && addProjectForm.get('projectName').touched">Please enter project name</span>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <button class="btn btn-primary" type="submit" (click)="onAddProject()" [disabled]="!addProjectForm.valid">Add Project</button>
+    <div class="row">
+      <div class="col-sm-3">
+        <button class="btn btn-primary" type="submit" [disabled]="!addProjectForm.valid">Add Project</button>
+      </div>
     </div>
-  </div>
-  <hr/>
-</form>
+    <hr/>
+  </form>
+</div>

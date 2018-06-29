@@ -15,6 +15,9 @@ import { ProjectItemComponent } from './projects/project-list/project-item/proje
 import { ProjectsService } from './projects/projects.service';
 import { ProjectNewComponent } from './projects/project-new/project-new.component';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
+import { CredentialsComponent } from './credentials/credentials.component';
+import { CredentialsService } from './credentials/credentials.service';
+import { NewCredentialComponent } from './credentials/new-credential/new-credential.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
     ProjectItemComponent,
     ProjectNewComponent,
     ProjectDetailsComponent,
+    CredentialsComponent,
+    NewCredentialComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,7 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ProjectsService],
+  providers: [ProjectsService,CredentialsService],
   bootstrap: [AppComponent]
 })
 

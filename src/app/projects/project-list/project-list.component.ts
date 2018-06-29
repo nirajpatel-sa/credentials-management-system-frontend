@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectModel } from '../projects.model';
 import { ProjectsService } from '../projects.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-list',
@@ -13,10 +13,10 @@ export class ProjectListComponent implements OnInit {
   projectList: ProjectModel[];
 
   constructor(private projectService: ProjectsService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+    private router: Router) { }
 
   ngOnInit() {
+    //getting project data
     this.projectService.projectChanged.subscribe(
       (project: ProjectModel[]) =>{
         this.projectList = project;
@@ -25,8 +25,9 @@ export class ProjectListComponent implements OnInit {
     this.projectList = this.projectService.getProjects();
   }
 
+  //navigating to add project form
   onAddProject() {
-    this.router.navigate(['new'], { relativeTo: this.route})
+    this.router.navigate(['new'])
   }
 
 }

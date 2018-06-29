@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-xs-12">
     <app-project-item 
-    *ngFor="let project of projectList; let i = projectIndex" 
+    *ngFor="let project of projectList; let i = index" 
     [projectItem]="project"
     [projectIndex]="i">
     </app-project-item>
