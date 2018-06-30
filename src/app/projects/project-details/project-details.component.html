@@ -3,8 +3,8 @@
     <button class="btn btn-primary" (click)="onAddCredential()">Add Credentials</button>
     <hr/>
     <h3>{{projects.projectName}}</h3>
-    <ul class="list-inline" *ngFor="let credential of projects.credentialsList">
-      <li>
+    <ul class="list-group" *ngFor="let credential of projects.credentialsList">
+      <li class="list-group-item">
         {{credential.credentialName}} {{credential.credentialPassword}}
       </li>
     </ul>

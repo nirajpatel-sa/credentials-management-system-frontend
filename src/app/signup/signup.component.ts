@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -13,31 +13,27 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
-      'name': new FormGroup({
-        'first-name': new FormControl(null, Validators.required),
-        'last-name': new FormControl(null, Validators.required)
-      }),
+      'first-name': new FormControl(null, Validators.required),
+      'last-name': new FormControl(null, Validators.required),
       'email': new FormControl(null, Validators.required),
-      'passwordGroup': new FormGroup({
-        'password': new FormControl(null, Validators.required),
-        'confirm-password': new FormControl(null,[
-          Validators.required
-        ])
-      })
-    });
+      'password': new FormControl(null, Validators.required),
+      'confirm-password': new FormControl(null,Validators.required)
+    },{validators: this.pwdMatchValidator})//,this.passwordMatch
   }
 
-  onSubmit(){
-    
+  pwdMatchValidator(frm: FormGroup) {
+    return frm.get('password').value === frm.get('confirm-password').value
+      ? null : { 'mismatch': true };
   }
 
-  // passwordMatch(controls: FormControl):{invalid: boolean}{
-  //   if(controls.get('password').value!== controls.get('confirm-password').value){
-  //     return {invalid: true}
-  //   }
-  // }
+  onSubmit() {
+    console.log(this.signUpForm);
+  }
 
-  onReset(){
+
+
+
+  onReset() {
     return this.signUpForm.reset();
   }
 }

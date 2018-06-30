@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Sign Up</h2>
+      <h3>Sign Up</h3>
     </div>
   </div>
 
@@ -9,22 +9,21 @@
 
 
     <div class="row">
-      <div formGroupName="name">
-        <div class="col-sm-3 form-group">
-          <label for="name.first-name">First Name</label>
-          <input class="form-control" type="text" id="first-name" formControlName="first-name">
-          <span class="help-block" *ngIf="signUpForm.get('name.first-name').invalid &&
-          signUpForm.get('name.first-name').touched">Please enter first name</span>
-        </div>
+      <div class="col-sm-3 form-group">
+        <label for="first-name">First Name</label>
+        <input class="form-control" type="text" id="first-name" formControlName="first-name">
+        <span class="help-block" *ngIf="signUpForm.get('first-name').invalid &&
+          signUpForm.get('first-name').touched">Please enter first name</span>
+      </div>
 
-        <div class="col-sm-3 form-group">
-          <label for="name.last-name">Last Name</label>
-          <input class="form-control" type="text" id="last-name" formControlName="last-name">
-          <span class="help-block" *ngIf="signUpForm.get('name.last-name').invalid &&
-          signUpForm.get('name.last-name').touched">Please enter last name</span>
-        </div>
+      <div class="col-sm-3 form-group">
+        <label for="last-name">Last Name</label>
+        <input class="form-control" type="text" id="last-name" formControlName="last-name">
+        <span class="help-block" *ngIf="signUpForm.get('last-name').invalid &&
+          signUpForm.get('last-name').touched">Please enter last name</span>
       </div>
     </div>
+
 
     <div class="row">
       <div class="col-sm-6 form-group">
@@ -35,24 +34,23 @@
       </div>
     </div>
 
-    <div formGroupName="passwordGroup">
-      <div class="row">
-        <div class="col-sm-3 form-group">
-          <label for="passwordGroup.password">Password</label>
-          <input class="form-control" type="password" id="password" formControlName="password">
-          <span class="help-block" *ngIf="signUpForm.get('passwordGroup.password').invalid &&
-          signUpForm.get('passwordGroup.password').touched">Please enter valid password</span>
-        </div>
+    <div class="row">
+      <div class="col-sm-3 form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" id="password" formControlName="password">
+        <span class="help-block" *ngIf="signUpForm.get('password').invalid &&
+          signUpForm.get('password').touched">Please enter valid password</span>
+      </div>
 
-        <div class="col-sm-3 form-group">
-          <label for="passwordGroup.confirm-password">Confirm Password</label>
-          <input class="form-control" type="password" id="confirm-password" formControlName="confirm-password">
-          <span class="help-block" *ngIf="!signUpForm.get('passwordGroup.confirm-password').valid && signUpForm.get('passwordGroup.confirm-password').touched">
-            <span *ngIf="signUpForm.get('passwordGroup.confirm-password').errors['required']">This is required!</span>
-          </span>
-        </div>
+      <div class="col-sm-3 form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input class="form-control" type="password" id="confirm-password" formControlName="confirm-password">
+        <span class="help-block" *ngIf="signUpForm.errors?.mismatch || (signUpForm.get('confirm-password').touched && signUpForm.get('confirm-password').invalid)">
+          Password didn't match
+        </span>
       </div>
     </div>
+
 
 
     <div class="row">
