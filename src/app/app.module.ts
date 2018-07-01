@@ -18,6 +18,7 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
 import { CredentialsComponent } from './credentials/credentials.component';
 import { CredentialsService } from './credentials/credentials.service';
 import { NewCredentialComponent } from './credentials/new-credential/new-credential.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NewCredentialComponent } from './credentials/new-credential/new-credent
     ProjectDetailsComponent,
     CredentialsComponent,
     NewCredentialComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

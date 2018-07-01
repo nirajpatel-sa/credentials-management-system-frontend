@@ -45,7 +45,8 @@
       <div class="col-sm-3 form-group">
         <label for="confirm-password">Confirm Password</label>
         <input class="form-control" type="password" id="confirm-password" formControlName="confirm-password">
-        <span class="help-block" *ngIf="signUpForm.errors?.mismatch || (signUpForm.get('confirm-password').touched && signUpForm.get('confirm-password').invalid)">
+        <span class="help-block" *ngIf="(signUpForm.errors?.mismatch && signUpForm.get('confirm-password').touched) 
+        || (signUpForm.get('confirm-password').touched && signUpForm.get('confirm-password').invalid)">
           Password didn't match
         </span>
       </div>

@@ -17,6 +17,30 @@ export class ProjectsService {
                 ), new CredentialsModel(
                     'Credential for Project 1',
                     'Password 2'
+                ), new CredentialsModel(
+                    'AWS for GTBank',
+                    'Password 3'
+                ), new CredentialsModel(
+                    'AWS for Photoshop',
+                    'Password 4'
+                ), new CredentialsModel(
+                    'AWS for selfie app',
+                    'Password 5'
+                ), new CredentialsModel(
+                    'Firebase for GTBank',
+                    'Password 6'
+                ), new CredentialsModel(
+                    'Firebase for Photoshop',
+                    'Password 7'
+                ), new CredentialsModel(
+                    'Firebase for selfie app',
+                    'Password 8'
+                ), new CredentialsModel(
+                    'Username for GTBank is dev-user-1',
+                    'Password 9'
+                ), new CredentialsModel(
+                    'Username for GTBank admin panel is dev-admin-1',
+                    'Password 10'
                 )
             ]
         ),
@@ -46,13 +70,13 @@ export class ProjectsService {
 
     //adding a new project to projectList
     addProject(projectName: string) {
-        this.projectsList.push(new ProjectModel(projectName,null));
+        this.projectsList.push(new ProjectModel(projectName, null));
         this.projectChanged.next(this.projectsList.slice());
     }
 
     //adding credentials to already defined projects
-    addCredential(projectId: number,cname:string,cpass:string){
-        this.getProject(projectId).credentialsList.push(new CredentialsModel(cname,cpass));
+    addCredential(projectId: number, cname: string, cpass: string) {
+        this.getProject(projectId).credentialsList.push(new CredentialsModel(cname, cpass));
         console.log(this.getProject(projectId).credentialsList);
     }
 

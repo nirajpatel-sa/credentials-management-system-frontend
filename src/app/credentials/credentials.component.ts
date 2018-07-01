@@ -9,12 +9,12 @@ import { CredentialsModel } from './credentials.model';
 })
 export class CredentialsComponent implements OnInit {
 
-  credentialList: CredentialsModel[];
+  // credentialList: CredentialsModel[];
   constructor(private credentialService: CredentialsService) { }
 
   ngOnInit() {
     //getting credentials from credential service
-    this.credentialList=this.credentialService.getCredentials();
+    // this.credentialList=this.credentialService.getCredentials();
   }
 
 }
